@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<head>
+    <title>IARE</title>
+    <!DOCTYPE html>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+     
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+     <style>
+          #form{
+             box-shadow: 6px 6px 8px gray;
+             border-radius: 15px;
+         }
+     </style>
+      <script>
+        $(function(){
+            $("#btnRegister").click(function(){
+                var userDetails = {
+                  
+                    Name: $("#txtName").val(),
+                    Password: $("#txtPassword").val(),
+                    Email: $("#txtEmail").val(),
+                    Phone:$("#txtPhone").val(),
+                    Dob:$("#dob").val(),
+                    Gender:("#male").val(),
+                    Gender:("#female").val()
+
+                };
+                $.ajax({
+                    method: "POST",
+                    url: "http://127.0.0.1:3000/postadmin",
+                    data: userDetails
+                });
+                alert("Admin Registered");
+                location.href="adminlogin.html";
+            });
+        })
+    </script>
+</head>
+<body class="container-fluid " >
+    
+    <div class="d-flex justify-content-center align-items-center mt-5 mb-2" >
+        <h2><strong>Institute Of Aeronautical Engineering</strong></h2>
+    </div>
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2 justify-content-space-between  ms-3 me-3" style="height: 70px; border-radius: 5px;">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="menuList">
+                        <ul class="navbar-nav me-auto mb-2 text-white me-2">
+                            <li class="nav-item">
+                            <a class="nav-link" href="index.html"><span class="bi bi-house-door-fill">Home</span></a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="about.html"><span class="bi bi-question-circle">Management</span></a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="service.html"><span class="bi bi-question-circle">Departments</span></a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="contact.html"><span class="bi bi-phone-fill">Contact Us</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
+                <div class="dropdown me-4 p-2">
+                    <ul>
+                        <li >
+                            <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"><span class="bi bi-box-arrow-in-right"></span>SignIn</a>
+                           
+                            <ul class="dropdown-menu">
+                                <li><a href="login.html" class="dropdown-item"><span class="bi bi-box-arrow-in-right"></span> Log In </a></li>
+                                <li><a href="register.html" class="dropdown-item"><span class="bi bi-person-plus-fill"></span> Sign Up </a></li>
+                                <li><a href="password.html" class="dropdown-item"><span class="bi bi-unlock-fill"></span> Change Password </a></li>
+                            </ul>
+                       </li> 
+                  </ul>  
+        
+                </div>  
+            </nav>
+        </div>
+
+
+    <div class="d-flex justify-content-center align-items-center " style="height: 900px;" >
+
+        <form class="border border-3 border-dark p-3 " style="width: 500px; "id="form" method="POST" name="registration" >
+            <h3 style="text-align: center; margin-bottom: 50px;">Registration form</h3>
+            <div style="font-weight: bold;">
+                <label class="form-label bold">Full Name :</label>
+            </div>
+            <div>
+                <input id="txtName" class="form-control mb-2" type="text" placeholder="Full Name" name="Name">
+            </div>
+            <div style="font-weight: bold;">
+                <label class="form-label">Email :</label>
+            </div>
+            <div>
+                <input  id="txtEmail" class="form-control  mb-3" type="email" placeholder="Email id" name="Email">
+            </div>
+            <div style="font-weight: bold;">
+                <label  class="form-label">Mobile :</label>
+            </div>
+            <div>
+                <input id="txtPhone" class="form-control  mb-3" type="number" placeholder="Contact Number"  name="Phone">
+            </div>
+            <div style="font-weight: bold;">
+                <label  class="form-label">DOB :</label>
+            </div>
+            <div>
+                <input id="dob" class="form-control  mb-3" type="date" placeholder="Date" name="Dob">
+            </div>
+            
+            <div style="font-weight: bold;">
+                <label class="form-label">password :</label>
+            </div>
+            <div>
+                <input id="txtPassword"  class="form-control  mb-3" type="password" placeholder="password"  name="Password">
+            </div>
+            <div style="font-weight: bold;">
+                <label class="form-label">Confirm password :</label>
+            </div>
+            <div>
+                <input class="form-control  mb-3" type="password" placeholder="confirm password" >
+            </div>
+            <div class="mb-3" style="font-weight: bold;">
+                <label class="form-label" >Gender :</label>
+                <input id="male" class="form-check-input " id="male" type="radio" value="male" name="Gender ">
+                <label  class="m-2">male</label>
+                <input id="female" class="form-check-input " id="female" type="radio" value="female" name="Gender">
+                <label class="m-1">female</label>
+            </div>
+            <div>
+              
+            </div>
+            <div class="mb-4">
+                <input type="checkbox" > I've read and accept <a class="text-danger " style="text-decoration: none;" href="#">Tems and Conditions</a>
+            </div>
+            <div class="d-flex  justify-content-space-between ">
+                <div  >
+                    <button class="btn btn-warning me-3 ">Already you have an account</button>
+                </div>
+                <div>
+                    <button id="btnRegister" class="btn btn-success ms-4 me-0">Register</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+     
+
+
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+<footer>
+    <div>
+        <div class="row mt-3" style="background-color: black; color: white; height: 300px;">
+
+         
+            <div class="col-1">
+
+            </div>
+
+            <div class="col-3 mt-5" >
+                <ul style="text-decoration-style: none;">
+                    <li><a href="https://www.facebook.com/IAREOFFICIAL" target="_blank"><i class ="bi bi-facebook"></i> Facebook</a></li>
+                     <li><a href="https://www.instagram.com/iare_hyderabad/" target="_blank"><i class ="bi bi-envelope"></i> Instagram</a></li>
+                     <li><a href="https://www.iare.ac.in/" target="_blank"><i class ="bi bi-google"></i> Google</a></li>
+                    <li><a href="https://twitter.com/aeronauticalof" target="_blank"><i class ="bi bi-twitter"></i> Twitter</a></li>
+                     <li><a href="https://www.youtube.com/channel/UCrN2YGajq0ITaokeOn2LEpQ/featured" target="_blank"><i class ="bi bi-youtube"></i> Youtube</a></li>
+                   </ul>
+
+            </div>
+            <div class="col-3 mt-5 ">
+                <ul >
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About US</a></li>
+                    <li><a href="service.html">Department</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+            </div>
+
+            <div class="col-3 mt-5">
+                <ul>
+                  
+                        <li>INSTITUTE OF AERONAUTICAL ENGINEERING</li>
+                        Dundigal, Hyderabad - 500 043,<br>
+                    Telangana, India.<br>
+                        Phone: 8886234501, 8886234502,<br>
+                    040-29705852, 29705853, 29705854<br>
+                        Email:support@iare.ac.in
+                  </ul>
+
+            </div>
+            <div class="col-1">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
